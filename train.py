@@ -36,7 +36,7 @@ def main():
     train_dataset = datasets.ImageFolder(root=args.data_root, transform=transform)
     train_loader = DataLoader(train_dataset, batch_size=args.batch_size, shuffle=True, num_workers=4)
 
-    model = GeminiContrast(input_dim=args.input_dim, num_classes=args.num_classes)
+    model = GeminiContrast(input_dim=args.input_dim, num_classes=args.num_classes, )
     model.to(device)
 
     optimizer = optim.Adam(model.parameters(), lr=args.learning_rate)

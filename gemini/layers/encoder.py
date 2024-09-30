@@ -3,6 +3,12 @@ import torch.nn as nn
 import torch.nn.functional as f
 
 class Encoder(nn.Module):
+    """
+    The Encoder is a series of ResidualBlocks meant to extract as much information as
+    possible from the input image, by making sure each layer gets a taste of the original
+    input, before linearizing it for classification purposes.  The eponymous twins of the
+    Gemini-Contrast architecture.
+    """
     def __init__(self, feature_dim=128):
         super(Encoder, self).__init__()
         self.convnet = nn.Sequential(
